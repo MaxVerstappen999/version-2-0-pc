@@ -1,0 +1,948 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Version 2.0 PC | Refurbished Tech. Better Value.</title>
+
+<style>
+:root {
+  --navy:#101d35;
+  --blue:#1d3b63;
+  --red:#d92735;
+  --light:#f3f5f8;
+  --text:#202a39;
+  --muted:#6c7889;
+  --border:#e0e5ec;
+  --white:#fff;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--light);
+  color:var(--text);
+}
+button,input,select,textarea {font:inherit}
+button {cursor:pointer}
+.promo {
+  background:var(--red);color:white;text-align:center;
+  padding:9px;font-size:13px;font-weight:bold;
+}
+header {background:var(--navy);color:white}
+.header-main {
+  max-width:1300px;margin:auto;padding:18px 22px;
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+}
+.logo {font-size:25px;font-weight:900;white-space:nowrap}
+.logo span {color:#ff4653}
+.tagline {font-size:10px;letter-spacing:1.5px;color:#c4d0df}
+.search {display:flex;flex:1;min-width:220px}
+.search input {
+  width:100%;padding:12px;border:0;border-radius:5px 0 0 5px;
+}
+.search button {
+  background:var(--red);color:white;border:0;
+  padding:0 18px;border-radius:0 5px 5px 0;font-weight:bold;
+}
+.header-actions {display:flex;gap:8px}
+.header-actions button {
+  color:white;background:transparent;border:1px solid #61718a;
+  padding:10px;border-radius:5px;font-weight:bold;
+}
+nav {background:#1c3151}
+.nav-inner {
+  max-width:1300px;margin:auto;display:flex;
+  overflow-x:auto;padding:0 15px;
+}
+.nav-inner button {
+  background:transparent;color:white;border:0;
+  padding:14px 15px;white-space:nowrap;font-size:13px;
+}
+.nav-inner button:hover,.nav-inner button.active {background:#304b70}
+main {max-width:1300px;margin:auto;padding:25px 20px 55px}
+.page {display:none}
+.page.active {display:block}
+.hero {
+  min-height:330px;border-radius:12px;padding:45px;
+  color:white;background:linear-gradient(115deg,#101d35,#244d7a);
+  display:flex;align-items:center;justify-content:space-between;gap:25px;
+}
+.hero-copy {max-width:650px}
+.eyebrow {color:#ff6a74;font-size:12px;font-weight:bold;letter-spacing:2px}
+.hero h1 {font-size:clamp(35px,5vw,55px);line-height:1.08;margin:12px 0}
+.hero p {color:#d7e0ed;margin-bottom:22px;max-width:560px;line-height:1.6}
+.hero-art {
+  width:260px;height:230px;flex-shrink:0;border-radius:15px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:105px;background:linear-gradient(145deg,#294b75,#111d31);
+  border:1px solid #506c91;
+}
+.btn {
+  background:var(--red);color:white;border:0;border-radius:5px;
+  padding:11px 16px;font-weight:bold;
+}
+.btn:hover {filter:brightness(.92)}
+.btn.secondary {background:var(--navy)}
+.btn.outline {background:white;color:var(--navy);border:1px solid var(--border)}
+.section-head {
+  display:flex;justify-content:space-between;align-items:end;
+  flex-wrap:wrap;gap:12px;margin:32px 0 17px;
+}
+.section-head h2 {font-size:25px}
+.section-head p {font-size:13px;color:var(--muted)}
+.features {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px;
+}
+.feature {
+  background:white;border:1px solid var(--border);border-radius:8px;
+  padding:19px;display:flex;align-items:center;gap:14px;
+}
+.feature-icon {font-size:30px}
+.feature h3 {font-size:15px}
+.feature p {font-size:12px;color:var(--muted)}
+.category-strip {display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}
+.category-strip button {
+  border:1px solid var(--border);background:white;border-radius:25px;
+  padding:9px 15px;font-size:13px;
+}
+.category-strip button:hover {border-color:var(--red);color:var(--red)}
+.shop-layout {display:grid;grid-template-columns:200px 1fr;gap:20px}
+.sidebar {
+  background:white;border:1px solid var(--border);border-radius:8px;
+  padding:16px;height:max-content;
+}
+.sidebar h3 {margin-bottom:10px}
+.sidebar button {
+  display:block;width:100%;text-align:left;background:none;border:0;
+  border-bottom:1px solid #edf0f4;padding:10px 4px;color:#566477;
+}
+.sidebar button:hover {color:var(--red)}
+.toolbar {
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;flex-wrap:wrap;margin-bottom:14px;
+}
+.toolbar select {
+  border:1px solid var(--border);background:white;border-radius:5px;padding:9px;
+}
+.product-grid {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;
+}
+.product-card {
+  background:white;border:1px solid var(--border);border-radius:9px;
+  overflow:hidden;display:flex;flex-direction:column;min-width:0;
+  transition:.15s;
+}
+.product-card:hover {transform:translateY(-3px);box-shadow:0 8px 22px #172b4518}
+.product-image {
+  height:185px;background:#f0f3f7;display:flex;
+  justify-content:center;align-items:center;overflow:hidden;
+}
+.product-image img {
+  width:100%;height:100%;object-fit:contain;padding:10px;
+}
+.missing-photo {
+  text-align:center;color:#7b8796;font-size:12px;padding:20px;
+}
+.missing-photo strong {display:block;font-size:38px;margin-bottom:7px}
+.product-info {padding:15px;display:flex;flex-direction:column;flex:1}
+.product-tag {
+  color:var(--red);font-size:10px;font-weight:900;
+  letter-spacing:1px;text-transform:uppercase;
+}
+.product-info h3 {font-size:15px;line-height:1.35;margin:7px 0}
+.product-info p {font-size:12px;color:var(--muted);flex:1}
+.price {font-size:21px;font-weight:900;margin:12px 0}
+.price small {font-size:10px;color:var(--muted);font-weight:normal}
+.product-actions {display:flex;gap:7px}
+.product-actions button {flex:1;font-size:12px;padding:9px 5px}
+.banner {
+  margin-top:25px;background:#e8edf5;border-radius:9px;padding:24px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;
+}
+.panel {
+  background:white;border:1px solid var(--border);
+  border-radius:9px;padding:23px;margin-bottom:18px;
+}
+.panel h2 {margin-bottom:8px}
+.panel p {color:var(--muted);font-size:14px;line-height:1.6}
+.form-grid {display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.field {display:flex;flex-direction:column;gap:6px}
+.field.full {grid-column:1/-1}
+.field label {font-size:12px;font-weight:bold}
+.field input,.field select,.field textarea {
+  border:1px solid var(--border);border-radius:5px;padding:11px;width:100%;
+}
+.field textarea {min-height:100px}
+.builder-list {display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
+.builder-item {border:1px solid var(--border);padding:13px;border-radius:7px}
+.builder-item label {font-weight:bold;font-size:12px;display:block;margin-bottom:7px}
+.builder-item select {width:100%;padding:9px;border:1px solid var(--border);border-radius:5px}
+.cart-row {
+  display:flex;justify-content:space-between;align-items:center;
+  gap:15px;padding:14px 0;border-bottom:1px solid var(--border);
+}
+.cart-row h3 {font-size:14px}
+.cart-row p {font-size:12px;color:var(--muted)}
+.quantity {display:flex;align-items:center;gap:8px}
+.quantity button {
+  width:27px;height:27px;background:white;border:1px solid var(--border);
+  border-radius:4px;
+}
+.cart-total {text-align:right;font-size:22px;font-weight:bold;padding-top:20px}
+.notice {font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+.empty {background:white;padding:30px;text-align:center;border-radius:8px;color:var(--muted)}
+footer {background:var(--navy);color:white;padding:35px 20px}
+.footer-inner {
+  max-width:1300px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px;
+}
+footer h3 {margin-bottom:10px}
+footer p,footer a {font-size:13px;color:#c4cede}
+footer a {display:block;margin:7px 0}
+footer a:hover {color:white}
+@media(max-width:850px) {
+  .product-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-art {width:180px;height:180px;font-size:75px}
+  .features {grid-template-columns:1fr}
+}
+@media(max-width:600px) {
+  .header-main {gap:12px}
+  .search {order:3;flex-basis:100%}
+  .hero {padding:28px}
+  .hero-art {display:none}
+  .shop-layout {grid-template-columns:1fr}
+  .sidebar {display:none}
+  .product-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .product-image {height:125px}
+  .product-info {padding:10px}
+  .product-info h3 {font-size:13px}
+  .product-actions {flex-direction:column}
+  .form-grid,.builder-list {grid-template-columns:1fr}
+  .footer-inner {grid-template-columns:1fr}
+  main {padding:17px 12px 40px}
+}
+</style>
+</head>
+
+<body>
+<div class="promo">WELCOME TO VERSION 2.0 PC — REFURBISHED TECH. BETTER VALUE.</div>
+
+<header>
+  <div class="header-main">
+    <div>
+      <div class="logo">VERSION <span>2.0</span> PC</div>
+      <div class="tagline">REFURBISHED TECH. BETTER VALUE.</div>
+    </div>
+
+    <form class="search" onsubmit="searchProducts(event)">
+      <input id="searchInput" placeholder="Search graphics cards, CPUs, PCs..." aria-label="Search products">
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="header-actions">
+      <button onclick="contactBuyer()">✉ Contact Buyer</button>
+      <button onclick="showPage('cart')">🛒 Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <button class="active" data-page="home" onclick="showPage('home',this)">Home</button>
+      <button data-page="shop" onclick="showPage('shop',this)">Shop Parts</button>
+      <button data-page="prebuilt" onclick="showPage('prebuilt',this)">Prebuilt PCs</button>
+      <button data-page="builder" onclick="showPage('builder',this)">Build a PC</button>
+      <button data-page="deals" onclick="showPage('deals',this)">Deals</button>
+      <button data-page="sell" onclick="showPage('sell',this)">Sell Parts</button>
+      <button data-page="about" onclick="showPage('about',this)">About Us</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">WELCOME TO VERSION 2.0 PC</div>
+      <h1>Great Tech.<br>Second Life.</h1>
+      <p>We buy used computer hardware, test it, clean it, and give it another chance. Find affordable PC parts and computers while helping reduce electronic waste.</p>
+      <button class="btn" onclick="showPage('shop')">Shop PC Parts</button>
+      <button class="btn outline" onclick="showPage('prebuilt')">Explore PCs</button>
+    </div>
+    <div class="hero-art">🖥️</div>
+  </div>
+
+  <div class="features">
+    <div class="feature"><div class="feature-icon">🔧</div><div><h3>Tested Hardware</h3><p>Parts are checked before being listed.</p></div></div>
+    <div class="feature"><div class="feature-icon">♻️</div><div><h3>Less E-Waste</h3><p>Giving used technology another life.</p></div></div>
+    <div class="feature"><div class="feature-icon">💰</div><div><h3>Affordable Options</h3><p>Find hardware at example prices.</p></div></div>
+  </div>
+
+  <div class="section-head"><div><h2>Shop by Category</h2><p>Find the components you need.</p></div></div>
+  <div class="category-strip">
+    <button onclick="filterCategory('GPU')">Graphics Cards</button>
+    <button onclick="filterCategory('CPU')">Processors</button>
+    <button onclick="filterCategory('RAM')">Memory</button>
+    <button onclick="filterCategory('Storage')">Storage</button>
+    <button onclick="filterCategory('Motherboard')">Motherboards</button>
+    <button onclick="filterCategory('Power Supply')">Power Supplies</button>
+    <button onclick="filterCategory('Case')">PC Cases</button>
+  </div>
+
+  <div class="section-head">
+    <div><h2>Featured Parts</h2><p>Popular products from our catalog.</p></div>
+    <button class="btn outline" onclick="showPage('shop')">View All Parts</button>
+  </div>
+  <div class="product-grid" id="featuredProducts"></div>
+
+  <div class="banner">
+    <div><h2>Have old PC parts?</h2><p>We are interested in used graphics cards, CPUs, RAM, and more.</p></div>
+    <button class="btn" onclick="showPage('sell')">Sell Your Parts</button>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="page" id="shop">
+  <div class="section-head"><div><h2>Shop PC Parts</h2><p>Browse our computer hardware catalog.</p></div></div>
+  <div class="shop-layout">
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <button onclick="filterCategory('All')">All Products</button>
+      <button onclick="filterCategory('GPU')">Graphics Cards</button>
+      <button onclick="filterCategory('CPU')">Processors</button>
+      <button onclick="filterCategory('RAM')">Memory</button>
+      <button onclick="filterCategory('Storage')">Storage</button>
+      <button onclick="filterCategory('Motherboard')">Motherboards</button>
+      <button onclick="filterCategory('Power Supply')">Power Supplies</button>
+      <button onclick="filterCategory('Case')">PC Cases</button>
+    </aside>
+    <div>
+      <div class="toolbar">
+        <span id="productCount">Products</span>
+        <select id="sortProducts" onchange="renderShop()">
+          <option value="default">Sort: Featured</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+      <div class="product-grid" id="shopProducts"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREBUILT PCS -->
+<section class="page" id="prebuilt">
+  <div class="section-head"><div><h2>Prebuilt PCs</h2><p>Explore desktop computers from popular brands.</p></div></div>
+  <div class="product-grid" id="prebuiltProducts"></div>
+  <p class="notice">Prices and configurations are examples. Always verify the exact processor, graphics card, memory, storage, and condition of each used computer.</p>
+</section>
+
+<!-- BUILD A PC -->
+<section class="page" id="builder">
+  <div class="panel">
+    <h2>Build Your Own PC</h2>
+    <p>Choose components to create a parts list. These are example prices, not live market quotes.</p>
+    <div class="builder-list" id="builderOptions"></div>
+    <div class="banner">
+      <div>
+        <h3>Your estimated parts total</h3>
+        <div class="price" id="builderTotal">$0.00</div>
+        <p id="builderSummary">Choose components to get started.</p>
+      </div>
+      <button class="btn" onclick="addBuildToCart()">Add Build to Cart</button>
+    </div>
+    <p class="notice">Compatibility is not automatically guaranteed. Check motherboard socket, memory type, power supply requirements, case size, and graphics card clearance before purchasing.</p>
+  </div>
+</section>
+
+<!-- DEALS -->
+<section class="page" id="deals">
+  <div class="section-head"><div><h2>Special Deals</h2><p>Selected affordable hardware options.</p></div></div>
+  <div class="product-grid" id="dealProducts"></div>
+  <p class="notice">Prices are examples and are not guaranteed discounts or live market prices.</p>
+</section>
+
+<!-- SELL PARTS -->
+<section class="page" id="sell">
+  <div class="panel">
+    <h2>Sell Your PC Parts</h2>
+    <p>Have hardware you no longer use? Send us the details and we can review your offer.</p>
+    <form id="sellForm" onsubmit="submitSellForm(event)">
+      <div class="form-grid">
+        <div class="field"><label>Your Name</label><input name="name" required placeholder="Your name"></div>
+        <div class="field"><label>Your Email</label><input name="email" type="email" required placeholder="you@example.com"></div>
+        <div class="field"><label>Product Type</label>
+          <select name="type" required>
+            <option value="">Choose a category</option>
+            <option>Graphics Card</option><option>Processor</option><option>RAM</option>
+            <option>Storage</option><option>Motherboard</option><option>Power Supply</option>
+            <option>PC Case</option><option>Complete PC</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Product Model</label><input name="model" required placeholder="Example: RTX 3060"></div>
+        <div class="field"><label>Condition</label>
+          <select name="condition">
+            <option>Excellent</option><option>Good</option><option>Fair</option><option>For parts / Not working</option>
+          </select>
+        </div>
+        <div class="field"><label>Asking Price ($)</label><input name="price" type="number" min="0" step="0.01" placeholder="Optional"></div>
+        <div class="field full"><label>Additional Information</label><textarea name="details" placeholder="Tell us about the item, age, condition, and any issues."></textarea></div>
+        <div class="field full"><button class="btn" type="submit">Send Selling Inquiry</button></div>
+      </div>
+    </form>
+    <p class="notice">This opens an email draft addressed to Version 2.0 PC. You will need to send the email yourself.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="about">
+  <div class="panel">
+    <h2>About Version 2.0 PC</h2>
+    <p>Version 2.0 PC buys used computer parts, tests, cleans, and refurbishes them to give them a second life. We sell individual components or use them to build affordable gaming and everyday PCs, providing reliable hardware while reducing electronic waste.</p>
+    <br>
+    <p>Our goal is to make PC hardware more affordable while helping keep usable electronics out of landfills.</p>
+  </div>
+  <div class="features">
+    <div class="feature"><div class="feature-icon">🛠️</div><div><h3>Inspect</h3><p>Check used components for condition and functionality.</p></div></div>
+    <div class="feature"><div class="feature-icon">🧹</div><div><h3>Clean</h3><p>Clean hardware and prepare it for resale.</p></div></div>
+    <div class="feature"><div class="feature-icon">♻️</div><div><h3>Reuse</h3><p>Help good hardware find a new home.</p></div></div>
+  </div>
+  <div class="panel" style="margin-top:20px">
+    <h2>Contact Us</h2>
+    <p>Questions about a product, a build, or selling your hardware?</p>
+    <br><button class="btn" onclick="contactBuyer()">Contact Buyer</button>
+  </div>
+</section>
+
+<!-- CART -->
+<section class="page" id="cart">
+  <div class="section-head"><div><h2>Your Shopping Cart</h2><p>Review your selected products.</p></div></div>
+  <div class="panel">
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal">Total: $0.00</div>
+    <div style="display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:18px">
+      <button class="btn outline" onclick="clearCart()">Clear Cart</button>
+      <button class="btn" onclick="checkout()">Continue to Checkout</button>
+    </div>
+    <p class="notice">This is a demonstration cart. It does not process payments or place real orders. A secure payment provider and adult-supervised business setup are needed before accepting payments.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo">VERSION <span>2.0</span> PC</div>
+      <p style="margin-top:12px">Refurbished technology. Better value. Giving used PC hardware a second life.</p>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <a href="#" onclick="showPage('shop');return false">Shop Parts</a>
+      <a href="#" onclick="showPage('prebuilt');return false">Prebuilt PCs</a>
+      <a href="#" onclick="showPage('builder');return false">Build a PC</a>
+      <a href="#" onclick="showPage('deals');return false">Deals</a>
+    </div>
+    <div>
+      <h3>Get in Touch</h3>
+      <a href="#" onclick="contactBuyer();return false">Contact Buyer</a>
+      <a href="#" onclick="showPage('sell');return false">Sell Your Parts</a>
+      <p>Lucarkb2014@gmail.com</p>
+    </div>
+  </div>
+  <div style="max-width:1300px;margin:25px auto 0;border-top:1px solid #344661;padding-top:15px;color:#9eacc0;font-size:12px">
+    © <span id="year"></span> Version 2.0 PC. All rights reserved.
+  </div>
+</footer>
+
+<script>
+// PRODUCT CATALOG
+// Example prices only. Change these after calculating your actual costs.
+
+const products = [
+  {
+    id:1,
+    name:"MSI GeForce RTX 4060 Ventus 2X Black 8G",
+    category:"GPU",
+    price:249.99,
+    description:"8GB GDDR6 dual-fan graphics card.",
+    icon:"🎮",
+    image:"https://elitehubs.com/cdn/shop/files/1024.png?v=1731305488"
+  },
+  {
+    id:2,
+    name:"ASUS Dual GeForce RTX 4060 8GB",
+    category:"GPU",
+    price:259.99,
+    description:"ASUS Dual 8GB GDDR6 graphics card.",
+    icon:"🎮",
+    image:"https://media.ldlc.com/r705/ld/products/00/06/04/66/LD0006046601.jpg"
+  },
+  {
+    id:3,
+    name:"Gigabyte GeForce RTX 3060 Gaming OC 12G",
+    category:"GPU",
+    price:219.99,
+    description:"12GB GDDR6 triple-fan graphics card.",
+    icon:"🎮",
+    image:"https://img.ep-cdn.com/i/500/500/ay/ayknxbjcdetvqilhospm/gigabyte-geforce-rtx-3060-gaming-oc-2-0-lhr-graficka-kartica-12-gb-gddr6-192-bit-cene.jpg"
+  },
+  {
+    id:4,
+    name:"AMD Radeon RX 6600 8GB",
+    category:"GPU",
+    price:159.99,
+    description:"8GB Radeon RX 6600 graphics card. Photo shows an ASRock partner version.",
+    icon:"🎮",
+    image:"https://cache.zoey.com.ar/foto.php?alto=750&ancho=750&src=%2FFOTOS%2FRX6600CLD8GB.JPG"
+  },
+  {
+    id:5,
+    name:"AMD Ryzen 5 5600",
+    category:"CPU",
+    price:99.99,
+    description:"6-core AMD desktop processor.",
+    icon:"🧠",
+    image:"https://www.awd-it.co.uk/media/catalog/product/9/1/916-7e4-833_1.jpg?bg-color=255%2C255%2C255&canvas=680%3A680&fit=bounds&height=680&optimize=high&width=680"
+  },
+  {
+    id:6,
+    name:"AMD Ryzen 5 7600",
+    category:"CPU",
+    price:169.99,
+    description:"AMD Ryzen 7000 desktop processor.",
+    icon:"🧠",
+    image:"https://d9os1j6dl6svx.cloudfront.net/images/CSHO-074-116.JPG"
+  },
+  {
+    id:7,
+    name:"Intel Core i5-12400F",
+    category:"CPU",
+    price:119.99,
+    description:"Intel 12th-generation desktop processor.",
+    icon:"🧠",
+    image:"https://i.ytimg.com/vi/0Dc_WD8SavQ/maxresdefault.jpg"
+  },
+  {
+    id:8,
+    name:"AMD Ryzen 7 7700",
+    category:"CPU",
+    price:239.99,
+    description:"8-core AMD Ryzen desktop processor.",
+    icon:"🧠",
+    image:"https://www.techspot.com/articles-info/2602/images/2023-01-09-image-4.jpg"
+  },
+  {
+    id:9,
+    name:"Corsair Vengeance LPX 16GB DDR4",
+    category:"RAM",
+    price:34.99,
+    description:"Corsair Vengeance LPX DDR4 desktop memory.",
+    icon:"▤",
+    image:"https://gear-up.me/media/catalog/product/cache/dd848c0aca36bee7f9635187ec2615e8/2/5/2502154_CORSAIR-16GB-DDR4-2666MHz.jpg"
+  },
+  {
+    id:10,
+    name:"Corsair Vengeance 32GB DDR5",
+    category:"RAM",
+    price:74.99,
+    description:"32GB Corsair Vengeance DDR5 memory kit.",
+    icon:"▤",
+    image:"https://down-th.img.susercontent.com/file/th-11134207-81ztl-mkxompsg1czlcc"
+  },
+  {
+    id:11,
+    name:"Samsung 990 EVO 1TB SSD",
+    category:"Storage",
+    price:69.99,
+    description:"1TB Samsung NVMe solid-state drive.",
+    icon:"💾",
+    image:""
+  },
+  {
+    id:12,
+    name:"WD Black SN770 1TB SSD",
+    category:"Storage",
+    price:64.99,
+    description:"1TB WD Black NVMe solid-state drive.",
+    icon:"💾",
+    image:"https://cdn.mos.cms.futurecdn.net/km3YAXtA7ioZ5HKwseDH8b.jpg"
+  },
+  {
+    id:13,
+    name:"MSI B550 Gaming Plus",
+    category:"Motherboard",
+    price:89.99,
+    description:"AMD AM4 ATX motherboard.",
+    icon:"▦",
+    image:"https://img.pccomponentes.com/articles/30/302203/1879-msi-mpg-b550-gaming-plus.jpg"
+  },
+  {
+    id:14,
+    name:"ASUS TUF Gaming B650-Plus",
+    category:"Motherboard",
+    price:149.99,
+    description:"AMD AM5 ATX motherboard.",
+    icon:"▦",
+    image:"https://www.iris.ma/126598/carte-mere-asus-tuf-gaming-b650-plus.jpg"
+  },
+  {
+    id:15,
+    name:"Corsair RM750e 750W",
+    category:"Power Supply",
+    price:79.99,
+    description:"750W Corsair modular power supply.",
+    icon:"⚡",
+    image:"https://media.topachat.com/media/s550/67d2a204965f4f3109346244.jpg"
+  },
+  {
+    id:16,
+    name:"NZXT H5 Flow",
+    category:"Case",
+    price:69.99,
+    description:"NZXT airflow-focused mid-tower PC case.",
+    icon:"🖥️",
+    image:"https://m.media-amazon.com/images/I/51yjChOurQL._SL500_.jpg"
+  }
+];
+
+// PREBUILT COMPUTERS
+const prebuilts = [
+  {
+    id:101,name:"HP OMEN 25L",category:"Prebuilt PC",price:499.99,
+    description:"HP gaming desktop family. Verify the exact configuration.",
+    icon:"🖥️",image:""
+  },
+  {
+    id:102,name:"Lenovo Legion Tower 5",category:"Prebuilt PC",price:599.99,
+    description:"Lenovo gaming desktop family. Verify the exact configuration.",
+    icon:"🖥️",image:""
+  },
+  {
+    id:103,name:"iBUYPOWER Slate MESH",category:"Prebuilt PC",price:549.99,
+    description:"iBUYPOWER Slate MESH gaming desktop.",
+    icon:"🖥️",
+    image:"https://content.ibuypower.com/Images/Components/25509/gaming-pc-01-Slate6Mesh-main-2400-.png"
+  },
+  {
+    id:104,name:"iBUYPOWER Y40",category:"Prebuilt PC",price:749.99,
+    description:"iBUYPOWER Y40 desktop family. Verify the exact configuration.",
+    icon:"🖥️",image:""
+  },
+  {
+    id:105,name:"CyberPowerPC Gamer Xtreme",category:"Prebuilt PC",price:499.99,
+    description:"CyberPowerPC Gamer Xtreme desktop family.",
+    icon:"🖥️",
+    image:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/984574d3-ee35-4837-99a0-024dcb42e541.jpg"
+  },
+  {
+    id:106,name:"Acer Nitro 50",category:"Prebuilt PC",price:449.99,
+    description:"Acer Nitro 50 desktop family. Verify the exact configuration.",
+    icon:"🖥️",
+    image:"https://cdn.cs.1worldsync.com/10/6a/106a20a9-4708-4438-ba1b-efcd5c81cd2d.jpg"
+  }
+];
+
+let cart=[];
+let activeCategory="All";
+let currentSearch="";
+
+function money(value) {
+  return "$"+Number(value).toFixed(2);
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+
+function escapeJS(value) {
+  return String(value).replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/\n/g," ");
+}
+
+function showPage(page,button) {
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  const target=document.getElementById(page);
+  if(target) target.classList.add("active");
+
+  document.querySelectorAll(".nav-inner button").forEach(b=>b.classList.remove("active"));
+  const navButton=button || document.querySelector('[data-page="'+page+'"]');
+  if(navButton) navButton.classList.add("active");
+
+  if(page==="cart") renderCart();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+// PRODUCT CARD WITH REAL IMAGE URL
+function productCard(product) {
+  const imageHTML=product.image
+    ? `<img src="${product.image}" alt="${escapeHTML(product.name)}" loading="lazy"
+         onerror="this.parentElement.innerHTML='<div class=&quot;missing-photo&quot;><strong>${product.icon}</strong>Product photo could not load</div>'">`
+    : `<div class="missing-photo"><strong>${product.icon}</strong>Exact product photo not added yet</div>`;
+
+  return `
+    <article class="product-card">
+      <div class="product-image">${imageHTML}</div>
+      <div class="product-info">
+        <div class="product-tag">${escapeHTML(product.category)}</div>
+        <h3>${escapeHTML(product.name)}</h3>
+        <p>${escapeHTML(product.description)}</p>
+        <div class="price">${money(product.price)} <small>example price</small></div>
+        <div class="product-actions">
+          <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
+          <button class="btn outline" onclick="contactAbout('${escapeJS(product.name)}')">Ask About</button>
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderShop() {
+  let list=products.filter(p=>
+    (activeCategory==="All" || p.category===activeCategory) &&
+    (p.name.toLowerCase().includes(currentSearch) ||
+     p.category.toLowerCase().includes(currentSearch))
+  );
+
+  const sort=document.getElementById("sortProducts").value;
+  if(sort==="low") list.sort((a,b)=>a.price-b.price);
+  if(sort==="high") list.sort((a,b)=>b.price-a.price);
+  if(sort==="name") list.sort((a,b)=>a.name.localeCompare(b.name));
+
+  document.getElementById("productCount").textContent=list.length+" products";
+  document.getElementById("shopProducts").innerHTML=list.length
+    ? list.map(productCard).join("")
+    : '<div class="empty">No products found. Try another search.</div>';
+}
+
+function renderFeatured() {
+  document.getElementById("featuredProducts").innerHTML=
+    products.slice(0,3).map(productCard).join("");
+}
+
+function renderPrebuilts() {
+  document.getElementById("prebuiltProducts").innerHTML=
+    prebuilts.map(productCard).join("");
+}
+
+function renderDeals() {
+  const deals=[products[3],products[4],products[8],products[11],prebuilts[4],prebuilts[5]];
+  document.getElementById("dealProducts").innerHTML=deals.map(productCard).join("");
+}
+
+function filterCategory(category) {
+  activeCategory=category;
+  currentSearch="";
+  document.getElementById("searchInput").value="";
+  showPage("shop");
+  renderShop();
+}
+
+function searchProducts(event) {
+  event.preventDefault();
+  currentSearch=document.getElementById("searchInput").value.trim().toLowerCase();
+  activeCategory="All";
+  showPage("shop");
+  renderShop();
+}
+
+// SHOPPING CART
+function addToCart(id) {
+  const product=[...products,...prebuilts].find(p=>p.id===id);
+  if(!product) return;
+
+  const existing=cart.find(item=>item.id===id);
+  if(existing) existing.quantity++;
+  else cart.push({...product,quantity:1});
+
+  updateCartCount();
+  alert(product.name+" added to your cart!");
+}
+
+function updateCartCount() {
+  document.getElementById("cartCount").textContent=
+    cart.reduce((sum,item)=>sum+item.quantity,0);
+}
+
+function renderCart() {
+  const container=document.getElementById("cartItems");
+
+  if(!cart.length) {
+    container.innerHTML='<div class="empty">Your cart is empty. Visit Shop Parts to find something!</div>';
+    document.getElementById("cartTotal").textContent="Total: $0.00";
+    return;
+  }
+
+  container.innerHTML=cart.map(item=>`
+    <div class="cart-row">
+      <div>
+        <h3>${escapeHTML(item.name)}</h3>
+        <p>${money(item.price)} each</p>
+      </div>
+      <div class="quantity">
+        <button onclick="changeQuantity(${item.id},-1)">−</button>
+        <span>${item.quantity}</span>
+        <button onclick="changeQuantity(${item.id},1)">+</button>
+        <strong>${money(item.price*item.quantity)}</strong>
+      </div>
+    </div>
+  `).join("");
+
+  const total=cart.reduce((sum,item)=>sum+item.price*item.quantity,0);
+  document.getElementById("cartTotal").textContent="Total: "+money(total);
+}
+
+function changeQuantity(id,amount) {
+  const item=cart.find(p=>p.id===id);
+  if(!item) return;
+
+  item.quantity+=amount;
+  if(item.quantity<=0) cart=cart.filter(p=>p.id!==id);
+
+  updateCartCount();
+  renderCart();
+}
+
+function clearCart() {
+  if(!cart.length) return;
+  if(confirm("Remove all items from your cart?")) {
+    cart=[];
+    updateCartCount();
+    renderCart();
+  }
+}
+
+function checkout() {
+  if(!cart.length) {
+    alert("Your cart is empty.");
+    return;
+  }
+
+  alert("This is a demonstration checkout. No payment has been taken and no order has been placed. Contact Version 2.0 PC to discuss availability.");
+  contactBuyer();
+}
+
+// CONTACT BUYER
+function contactBuyer() {
+  const email="Lucarkb2014@gmail.com";
+  const subject=encodeURIComponent("Version 2.0 PC Customer Inquiry");
+  const body=encodeURIComponent(
+    "Hello Version 2.0 PC,\n\nI am interested in your products and services.\n\nThank you!"
+  );
+  const gmail="https://mail.google.com/mail/?view=cm&fs=1&to="+
+    encodeURIComponent(email)+"&su="+subject+"&body="+body;
+  const mailto="mailto:"+email+"?subject="+subject+"&body="+body;
+
+  const newWindow=window.open(gmail,"_blank");
+  if(!newWindow) window.location.href=mailto;
+}
+
+function contactAbout(productName) {
+  const email="Lucarkb2014@gmail.com";
+  const subject=encodeURIComponent("Question about "+productName);
+  const body=encodeURIComponent(
+    "Hello Version 2.0 PC,\n\nI am interested in: "+productName+
+    "\n\nIs this product available?\n\nThank you!"
+  );
+  window.location.href="mailto:"+email+"?subject="+subject+"&body="+body;
+}
+
+// SELL PARTS FORM
+function submitSellForm(event) {
+  event.preventDefault();
+
+  const data=new FormData(event.target);
+  const subject=encodeURIComponent("Used Hardware Offer: "+data.get("model"));
+  const body=encodeURIComponent(
+    "Hello Version 2.0 PC,\n\nI would like to sell a PC component.\n\n"+
+    "Name: "+data.get("name")+"\n"+
+    "Email: "+data.get("email")+"\n"+
+    "Type: "+data.get("type")+"\n"+
+    "Model: "+data.get("model")+"\n"+
+    "Condition: "+data.get("condition")+"\n"+
+    "Asking Price: "+(data.get("price") || "Not provided")+"\n"+
+    "Details: "+(data.get("details") || "No additional details.")
+  );
+
+  window.location.href="mailto:Lucarkb2014@gmail.com?subject="+subject+"&body="+body;
+}
+
+// BUILD YOUR OWN PC
+const builderGroups=[
+  {name:"Processor (CPU)",items:[5,6,7,8]},
+  {name:"Graphics Card (GPU)",items:[1,2,3,4]},
+  {name:"Memory (RAM)",items:[9,10]},
+  {name:"Storage",items:[11,12]},
+  {name:"Motherboard",items:[13,14]},
+  {name:"Power Supply",items:[15]},
+  {name:"PC Case",items:[16]}
+];
+
+function renderBuilder() {
+  document.getElementById("builderOptions").innerHTML=
+    builderGroups.map((group,index)=>{
+      const choices=group.items.map(id=>products.find(p=>p.id===id));
+      return `
+        <div class="builder-item">
+          <label for="build-${index}">${group.name}</label>
+          <select id="build-${index}" onchange="updateBuilderTotal()">
+            <option value="">Choose a component</option>
+            ${choices.map(p=>`
+              <option value="${p.id}">${escapeHTML(p.name)} — ${money(p.price)}</option>
+            `).join("")}
+          </select>
+        </div>`;
+    }).join("");
+
+  updateBuilderTotal();
+}
+
+function getBuild() {
+  return builderGroups.map((group,index)=>{
+    const id=Number(document.getElementById("build-"+index).value);
+    return products.find(p=>p.id===id);
+  }).filter(Boolean);
+}
+
+function updateBuilderTotal() {
+  const build=getBuild();
+  const total=build.reduce((sum,p)=>sum+p.price,0);
+  document.getElementById("builderTotal").textContent=money(total);
+  document.getElementById("builderSummary").textContent=
+    build.length+" component(s) selected";
+}
+
+function addBuildToCart() {
+  const build=getBuild();
+
+  if(!build.length) {
+    alert("Choose at least one component first.");
+    return;
+  }
+
+  build.forEach(p=>{
+    const existing=cart.find(item=>item.id===p.id);
+    if(existing) existing.quantity++;
+    else cart.push({...p,quantity:1});
+  });
+
+  updateCartCount();
+  alert("Your selected components have been added to the cart!");
+  showPage("cart");
+}
+
+// START WEBSITE
+document.getElementById("year").textContent=new Date().getFullYear();
+
+renderFeatured();
+renderShop();
+renderPrebuilts();
+renderDeals();
+renderBuilder();
+updateCartCount();
+</script>
+</body>
+</html>
